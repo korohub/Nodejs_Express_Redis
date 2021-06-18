@@ -23,8 +23,7 @@ app.get('/rockets', async (req, res, next) => {
             res.send(JSON.parse(reply))
             return
         }
-
-        const response = await axios.get('https://api.spacexdata.com/v3/rockets')
+        const response = await axios.get('https://api.spacexdata.com/v4/rockets')
         const saveResult = await SET_ASYNC(
             'rockets',
             JSON.stringify(response.data),
@@ -37,9 +36,14 @@ app.get('/rockets', async (req, res, next) => {
     }
 });
 
-app.get('/', (req, res) => {
-    res.json({user: 'tobi'})
+app.get('/', async (req, res) => {
+    try {
+        const response = await axios.get('https://api.spacexdata.com/v3/rockets')
+        res.send(response.data)
+    }catch (err) {
+        res.send(err.message)
+    }
 }) 
 
-app.listen(3002, () => console.log('🚀 on port 3002'));
+app.listen(3000, () => console.log('🚀 on port 3000'));
 
