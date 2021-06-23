@@ -36,7 +36,13 @@ ou ( si nodemon installé)
 ```sh
 npm start
 ```
+## Test 
 
+Sans Redis 
+http://localhost:3000/rockets
+
+Avec un serveur Redis
+http://localhost:3000/rockets-redis
 
 
 ## Versions
@@ -52,4 +58,4 @@ npm start
 ## Todo
 
 - Ajout dockerfile pour build une image
-- Ajout Docker-compose pour insitialiser Redis + container API
+- Ajout Docker-compose pour insitialiser Redis + container API 

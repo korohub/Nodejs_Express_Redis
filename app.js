@@ -15,7 +15,18 @@ const client = redis.createClient({
 const GET_ASYNC = promisify(client.get).bind(client);
 const SET_ASYNC = promisify(client.set).bind(client);
 
-app.get('/rockets', async (req, res, next) => {
+// sans Redis
+app.get('/rockets', async (req, res) => {
+    try {
+        const response = await axios.get('https://api.spacexdata.com/v3/rockets')
+        res.send(response.data)
+    }catch (err) {
+        res.send(err.message)
+    }
+})
+
+//Avec Redis
+app.get('/rockets-redis', async (req, res, next) => {
     try {
         const reply = await GET_ASYNC('rockets')
         if (reply) {
@@ -36,14 +47,7 @@ app.get('/rockets', async (req, res, next) => {
     }
 });
 
-app.get('/', async (req, res) => {
-    try {
-        const response = await axios.get('https://api.spacexdata.com/v3/rockets')
-        res.send(response.data)
-    }catch (err) {
-        res.send(err.message)
-    }
-}) 
+
 
 app.listen(3000, () => console.log('🚀 on port 3000'));
 
