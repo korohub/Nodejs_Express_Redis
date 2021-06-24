@@ -47,8 +47,8 @@ http://localhost:3000/rockets-redis
 
 ## Versions
 
-**Dernière version stable :** 0.1
-**Dernière version :** 0.1
+**Dernière version stable :** 0.2
+**Dernière version :** 0.2
 
 
 ## Auteurs
