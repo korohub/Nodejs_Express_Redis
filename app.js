@@ -8,10 +8,12 @@ const { promisify } = require('util');
 const app = express(); 
 app.use(responseTime());
 
+// connexion Redis
 const client = redis.createClient({
     host: '192.168.1.99',
     port: 6379,
 })
+
 const GET_ASYNC = promisify(client.get).bind(client);
 const SET_ASYNC = promisify(client.set).bind(client);
 
