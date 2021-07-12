@@ -49,6 +49,8 @@ app.get('/rockets-redis', async (req, res, next) => {
     }
 });
 
+// Get rocket by id  with Redis cache
+
 app.get('/rocket/:rocket_id', async (req, res, next) =>{
     try {
         const {rocket_id} = req.params
