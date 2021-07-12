@@ -1,3 +1,11 @@
 ### Get all rockets
 
 Get http://localhost:3000/rockets-redis
+
+### Get single rocket
+
+Get http://localhost:3000/rocket/falcon1
+
+### Get from spaceX
+
+Get https://api.spacexdata.com/v3/rockets/falcon1
