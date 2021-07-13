@@ -58,4 +58,4 @@ http://localhost:3000/rockets-redis
 ## Todo
 
 - Ajout dockerfile pour build une image
-- Ajout Docker-compose pour insitialiser Redis + container API 
+- Ajout Docker-compose pour initialiser Redis + container API 
